@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: k8s-static-svc
+spec:
+  selector:
+    app: static
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+type: Loadbalancer

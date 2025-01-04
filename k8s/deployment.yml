@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-static
+  namespace: static
+spec:
+  selector:
+    matchLabels:
+      app: static
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: static
+    spec:
+      containers:
+      - name: static
+        image: static:1.14.2 # if you have image in ECR,then paste the ECR url here with :tag name like 1 or 2
+        ports:
+        - containerPort: 80 # depends upon image or dockewr file
